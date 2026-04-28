@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Akan Name Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Akan Name Generator</h1>
+      <p class="subtitle">Discover your Ghanaian soul name based on the day you were born</p>
+
+      <div class="card">
+        <div class="form-group">
+          <label>Day</label>
+          <input type="number" id="day" placeholder="e.g. 15" />
+        </div>
+
+        <div class="form-group">
+          <label>Month</label>
+          <input type="number" id="month" placeholder="e.g. 6" />
+        </div>
+
+        <div class="form-group">
+          <label>Year</label>
+          <input type="number" id="year" placeholder="e.g. 2000" />
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="gender-options">
+            <label class="radio-label">
+              <input type="radio" name="gender" value="male" /> Male
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="female" /> Female
+            </label>
+          </div>
+        </div>
+
+        <button onclick="generateName()">Find My Akan Name</button>
+      </div>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
