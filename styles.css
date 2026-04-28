@@ -149,3 +149,45 @@ button:hover {
   font-size: 13px;
   line-height: 2;
 }
+.about {
+  margin-top: 40px;
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: left;
+}
+
+.about h2 {
+  color: navy;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.about p {
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.akan-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.akan-table th {
+  background-color: navy;
+  color: gold;
+  padding: 10px;
+  text-align: left;
+}
+
+.akan-table td {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  color: navy;
+}
+
+.akan-table tr:hover {
+  background-color: aliceblue;
+}
