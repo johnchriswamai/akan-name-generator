@@ -6,22 +6,29 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
+  padding: 0;
+  background-color: rgb(10, 0, 20);
+  background-image:
+    radial-gradient(ellipse at 0% 0%, rgba(130, 0, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 0%, rgba(180, 0, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(80, 0, 180, 0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 100%, rgba(100, 0, 200, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(150, 0, 255, 0.2) 0%, transparent 50%);
 }
 
 .navbar {
   width: 100%;
-  background-color: rgb(44, 4, 44);
+  background-color: rgba(20, 0, 40, 0.9);
+  backdrop-filter: blur(20px);
   padding: 24px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+  border-bottom: 1px solid rgba(180, 0, 255, 0.4);
 }
 
 .nav-brand {
@@ -49,6 +56,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  padding: 0 20px;
 }
 
 h1 {
@@ -65,10 +73,12 @@ h1 {
 
 .card {
   width: 100%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 30px;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 8px 32px rgba(130, 0, 255, 0.2);
 }
 
 .form-group {
@@ -80,7 +90,7 @@ h1 {
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: black;
+  color: lightgray;
   margin-bottom: 6px;
 }
 
@@ -88,18 +98,20 @@ h1 {
   width: 100%;
   padding: 10px 14px;
   font-size: 15px;
-  border: 2px solid lightgray;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
   outline: none;
+  color: white;
 }
 
 .form-group input[type="number"]:focus {
-  border-color: steelblue;
-  box-shadow: 0px 0px 6px lightblue;
+  border-color: purple;
+  box-shadow: 0px 0px 8px rgba(130, 0, 255, 0.5);
 }
 
 ::placeholder {
-  color: lightgray;
+  color: gray;
   font-style: italic;
 }
 
@@ -110,7 +122,7 @@ h1 {
 
 .radio-label {
   font-size: 15px;
-  color: black;
+  color: lightgray;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -120,8 +132,8 @@ h1 {
 button {
   width: 100%;
   padding: 14px;
-  background-color: black;
-  color: gold;
+  background: linear-gradient(135deg, purple, midnightblue);
+  color: white;
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -132,39 +144,40 @@ button {
 }
 
 button:hover {
-  background-color: steelblue;
+  background: linear-gradient(135deg, mediumorchid, steelblue);
   transform: scale(1.02);
 }
 
 .reset-btn {
   width: 100%;
   padding: 14px;
-  background-color: white;
-  color: black;
+  background-color: transparent;
+  color: lightgray;
   font-size: 16px;
   font-weight: 700;
-  border: 2px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   cursor: pointer;
   margin-top: 10px;
+  transition: all 0.2s ease;
 }
 
 .reset-btn:hover {
-  background-color: lightgray;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .result {
   width: 100%;
   margin-top: 30px;
-  background-color: gold;
-  color: black;
+  background: linear-gradient(135deg, purple, midnightblue);
+  color: white;
   border-radius: 16px;
   padding: 30px 24px;
   font-size: 26px;
   font-weight: 700;
   display: none;
   text-align: center;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 32px rgba(130, 0, 255, 0.4);
   animation: fadeIn 0.4s ease;
 }
 
@@ -177,26 +190,28 @@ button:hover {
   font-size: 14px;
   font-weight: 400;
   margin-top: 6px;
-  color: steelblue;
+  color: lightgray;
 }
 
 .about {
   width: 100%;
   margin-top: 40px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 30px;
   text-align: left;
 }
 
 .about h2 {
-  color: black;
+  color: white;
   font-size: 22px;
   margin-bottom: 12px;
 }
 
 .about p {
-  color: gray;
+  color: lightgray;
   font-size: 14px;
   margin-bottom: 20px;
   line-height: 1.6;
@@ -208,27 +223,27 @@ button:hover {
 }
 
 .akan-table th {
-  background-color: black;
-  color: gold;
+  background-color: rgba(130, 0, 255, 0.5);
+  color: white;
   padding: 10px;
   text-align: left;
 }
 
 .akan-table td {
   padding: 10px;
-  border-bottom: 1px solid lightgray;
-  color: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: lightgray;
 }
 
 .akan-table tr:hover {
-  background-color: aliceblue;
+  background-color: rgba(130, 0, 255, 0.1);
 }
 
 .footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
-  color: gold;
-  font-size: 19px;
+  color: gray;
+  font-size: 13px;
   line-height: 2;
 }
