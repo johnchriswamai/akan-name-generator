@@ -46,3 +46,12 @@ function generateName() {
     <div class="day-label">Born on a ${dayName}</div>
   `;
 }
+function resetForm() {
+  document.getElementById("day").value = "";
+  document.getElementById("month").value = "";
+  document.getElementById("year").value = "";
+  document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "none";
+  resultDiv.innerHTML = "";
+}
