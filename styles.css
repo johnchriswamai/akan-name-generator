@@ -6,19 +6,22 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: black;
+  background-color: navy;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 20px;
-  padding-top: 70px;
+  padding-top: 90px;
 }
 
 .container {
   text-align: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
@@ -33,8 +36,38 @@ h1 {
   margin-bottom: 30px;
 }
 
+.navbar {
+  width: 100%;
+  background-color: midnightblue;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.nav-brand {
+  color: gold;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-links a {
+  color: lightgray;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  color: gold;
+}
+
 .card {
-  background-color: gainsboro;
+  width: 100%;
+  background-color: white;
   border-radius: 16px;
   padding: 30px;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.3);
@@ -63,7 +96,13 @@ h1 {
 }
 
 .form-group input[type="number"]:focus {
-  border-color: navy;
+  border-color: steelblue;
+  box-shadow: 0px 0px 6px lightblue;
+}
+
+::placeholder {
+  color: lightgray;
+  font-style: italic;
 }
 
 .gender-options {
@@ -91,55 +130,60 @@ button {
   border-radius: 10px;
   cursor: pointer;
   margin-top: 10px;
+  transition: all 0.2s ease;
 }
 
 button:hover {
   background-color: steelblue;
   transform: scale(1.02);
-  transition: all 0.2s ease;
 }
+
+.reset-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: white;
+  color: navy;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid navy;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.reset-btn:hover {
+  background-color: lightgray;
+}
+
+.result {
+  width: 100%;
+  margin-top: 30px;
+  background-color: gold;
+  color: navy;
+  border-radius: 16px;
+  padding: 30px 24px;
+  font-size: 26px;
+  font-weight: 700;
+  display: none;
+  text-align: center;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .result .day-label {
   font-size: 14px;
   font-weight: 400;
   margin-top: 6px;
   color: steelblue;
-}.navbar {
-  width: 100%;
-  background-color: midnightblue;
-  padding: 16px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
-.nav-brand {
-  color: gold;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.nav-links a {
-  color: lightgray;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 15px;
-}
-
-.nav-links a:hover {
-  color: gold;
-}
-.footer {
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  color: lightgray;
-  font-size: 13px;
-  line-height: 2;
-}
 .about {
+  width: 100%;
   margin-top: 40px;
   background-color: white;
   border-radius: 16px;
@@ -181,55 +225,12 @@ button:hover {
 .akan-table tr:hover {
   background-color: aliceblue;
 }
-.reset-btn {
-  width: 100%;
-  padding: 14px;
-  background-color: white;
-  color: navy;
-  font-size: 16px;
-  font-weight: 700;
-  border: 2px solid navy;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-}
 
-.reset-btn:hover {
-  background-color: lightgray;
-}
-.result {
-  margin-top: 30px;
-  background-color: gold;
-  color: navy;
-  border-radius: 16px;
-  padding: 30px 24px;
-  font-size: 26px;
-  font-weight: 700;
-  display: none;
+.footer {
   text-align: center;
-  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-::placeholder {
+  padding: 20px;
+  margin-top: 40px;
   color: lightgray;
-  font-style: italic;
+  font-size: 13px;
+  line-height: 2;
 }
-
-.form-group input[type="number"]:focus {
-  border-color: steelblue;
-  box-shadow: 0px 0px 6px lightblue;
-}/* improved spacing */
-/* smooth scroll */
-/* mobile responsiveness */
-/* navbar shadow */
-/* card border */
-/* footer links */
-/* button transition */
-/* result font size */
-/* input border radius */
-/* final polish */

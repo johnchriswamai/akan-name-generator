@@ -55,3 +55,5 @@ function resetForm() {
   resultDiv.style.display = "none";
   resultDiv.innerHTML = "";
 }
+document.getElementById("submit-btn").addEventListener("click", generateName);
+document.getElementById("reset-btn").addEventListener("click", resetForm);
