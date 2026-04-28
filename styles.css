@@ -141,3 +141,11 @@ button:hover {
 .nav-links a:hover {
   color: gold;
 }
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: lightgray;
+  font-size: 13px;
+  line-height: 2;
+}
