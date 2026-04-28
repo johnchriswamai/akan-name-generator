@@ -97,16 +97,6 @@ button:hover {
   background-color: steelblue;
 }
 
-.result {
-  margin-top: 30px;
-  background-color: gold;
-  color: navy;
-  border-radius: 16px;
-  padding: 24px;
-  font-size: 22px;
-  font-weight: 700;
-  display: none;
-}
 
 .result .day-label {
   font-size: 14px;
