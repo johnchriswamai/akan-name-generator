@@ -63,3 +63,19 @@ function resetForm() {
 // Event listeners - connects buttons to functions
 document.getElementById("submit-btn").addEventListener("click", generateName);
 document.getElementById("reset-btn").addEventListener("click", resetForm);
+function generateName() {
+  const day    = parseInt(document.getElementById("day").value);
+  const month  = parseInt(document.getElementById("month").value);
+  const year   = parseInt(document.getElementById("year").value);
+  const gender = document.querySelector('input[name="gender"]:checked');
+
+  // Validation - check if inputs are valid
+  if (isNaN(day) || isNaN(month) || isNaN(year) || !gender) {
+    alert("Please fill in all fields!");
+    return;
+  }
+
+  if (day < 1 || day > 31 || month < 1 || month > 12) {
+    alert("Please enter a valid date!");
+    return;
+  }
