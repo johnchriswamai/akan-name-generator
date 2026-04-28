@@ -1,4 +1,4 @@
-// Akan names lookup table - 0=Sunday, 6=Saturday
+// Akan names - day 0=Sunday to 6=Saturday
 const akanNames = {
   0: { male: "Kwasi",   female: "Akosua" },
   1: { male: "Kwadwo",  female: "Adwoa"  },
@@ -11,71 +11,53 @@ const akanNames = {
 
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-// Zeller's formula - calculates day of week from a date
+// Zeller's formula
 function getDayOfWeek(day, month, year) {
-  if (month <= 2) {
-    month += 12;
-    year -= 1;
-  }
-  const CC = Math.floor(year / 100); // century e.g 2026 = 20
-  const YY = year % 100;             // last 2 digits e.g 2026 = 26
-
-  const d = (
-    Math.floor(CC / 4) - (2 * CC) - 1 +
-    Math.floor((5 * YY) / 4) +
-    Math.floor((26 * (month + 1)) / 10) +
-    day
-  ) % 7;
-
-  return ((d % 7) + 7) % 7; // ensures result is always 0-6
+  if (month <= 2) { month += 12; year -= 1; }
+  const CC = Math.floor(year / 100);
+  const YY = year % 100;
+  const d = (Math.floor(CC / 4) - (2 * CC) - 1 + Math.floor((5 * YY) / 4) + Math.floor((26 * (month + 1)) / 10) + day) % 7;
+  return ((d % 7) + 7) % 7;
 }
 
-// Main function - runs when button is clicked
+// Runs when Find button is clicked
 function generateName() {
   const day    = parseInt(document.getElementById("day").value);
   const month  = parseInt(document.getElementById("month").value);
   const year   = parseInt(document.getElementById("year").value);
   const gender = document.querySelector('input[name="gender"]:checked');
 
-  const dayOfWeek = getDayOfWeek(day, month, year);
-  const name      = akanNames[dayOfWeek][gender.value];
-  const dayName   = dayNames[dayOfWeek];
+  // Days allowed per month
+  const daysInMonth = [0, 31, year % 4 === 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+  // Validation
+  if (isNaN(day) || !month || isNaN(year) || !gender) {
+    alert("Please fill in all fields!"); return;
+  }
+  if (day < 1 || day > daysInMonth[month]) {
+    alert("Invalid day for the selected month!"); return;
+  }
+
+  // Get name and display result
+  const dayOfWeek = getDayOfWeek(day, month, year);
   const resultDiv = document.getElementById("result");
   resultDiv.style.display = "block";
   resultDiv.innerHTML = `
-    Your Akan Name is <strong>${name}</strong>
-    <div class="day-label">Born on a ${dayName}</div>
+    Your Akan Name is <strong>${akanNames[dayOfWeek][gender.value]}</strong>
+    <div class="day-label">Born on a ${dayNames[dayOfWeek]}</div>
   `;
 }
 
-// Reset function - clears form and hides result
+// Runs when Reset button is clicked
 function resetForm() {
   document.getElementById("day").value = "";
   document.getElementById("month").value = "";
   document.getElementById("year").value = "";
   document.querySelectorAll('input[name="gender"]').forEach(r => r.checked = false);
-  const resultDiv = document.getElementById("result");
-  resultDiv.style.display = "none";
-  resultDiv.innerHTML = "";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("result").innerHTML = "";
 }
 
-// Event listeners - connects buttons to functions
+// Connect buttons to functions
 document.getElementById("submit-btn").addEventListener("click", generateName);
 document.getElementById("reset-btn").addEventListener("click", resetForm);
-function generateName() {
-  const day    = parseInt(document.getElementById("day").value);
-  const month  = parseInt(document.getElementById("month").value);
-  const year   = parseInt(document.getElementById("year").value);
-  const gender = document.querySelector('input[name="gender"]:checked');
-
-  // Validation - check if inputs are valid
-  if (isNaN(day) || isNaN(month) || isNaN(year) || !gender) {
-    alert("Please fill in all fields!");
-    return;
-  }
-
-  if (day < 1 || day > 31 || month < 1 || month > 12) {
-    alert("Please enter a valid date!");
-    return;
-  }
