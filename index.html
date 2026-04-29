@@ -1,129 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- Basic page setup -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Akan Name Generator</title>
-  <!-- Link to our CSS file for styling -->
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-  <!-- NAVBAR - top bar with logo and links -->
-  <nav class="navbar">
-    <div class="nav-brand">Akan Name Generator</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="https://github.com/johnchriswamai/akan-name-generator" target="_blank">GitHub</a>
-    </div>
-  </nav>
-
-  <!-- MAIN CONTAINER - holds all page content -->
-  <div class="container">
-
-    <!-- PAGE TITLE AND SUBTITLE -->
-    <h1>Akan Name Generator</h1>
-    <p class="subtitle">Enter your birthday and find out your Akan name!</p>
-
-    <!-- FORM CARD - where user enters their details -->
-    <div class="card">
-
-      <!-- DAY INPUT -->
-      <div class="form-group">
-        <label>Day</label>
-        <input type="number" id="day" placeholder="e.g. 15" />
+  <head>
+    <!-- Basic page setup -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akan Name Generator</title>
+    <!-- Link to our CSS file for styling -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- NAVBAR - top bar with logo and links -->
+    <nav class="navbar">
+      <div class="nav-brand">Akan Name Generator</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a
+          href="https://github.com/johnchriswamai/akan-name-generator"
+          target="_blank"
+          >GitHub</a
+        >
       </div>
+    </nav>
 
-      <!-- MONTH DROPDOWN - user picks month by name -->
-      <div class="form-group">
-        <label>Month</label>
-        <select id="month">
-          <option value="">Select Month</option>
-          <option value="1">January</option>
-          <option value="2">February</option>
-          <option value="3">March</option>
-          <option value="4">April</option>
-          <option value="5">May</option>
-          <option value="6">June</option>
-          <option value="7">July</option>
-          <option value="8">August</option>
-          <option value="9">September</option>
-          <option value="10">October</option>
-          <option value="11">November</option>
-          <option value="12">December</option>
-        </select>
-      </div>
+    <!-- MAIN CONTAINER - holds all page content -->
+    <div class="container">
+      <!-- PAGE TITLE AND SUBTITLE -->
+      <h1>Akan Name Generator</h1>
+      <p class="subtitle">Welcome to the Akan Name Generator.So basically, Akan names are based on the day of the week you were born.
+        This tool helps you find your Akan name by entering your birthday, month, year, and gender
+        Enter your birthday and find out your Akan name!</p>
 
-      <!-- YEAR INPUT -->
-      <div class="form-group">
-        <label>Year</label>
-        <input type="number" id="year" placeholder="e.g. 2000" />
-      </div>
-
-      <!-- GENDER RADIO BUTTONS - only one can be selected at a time -->
-      <div class="form-group">
-        <label>Gender</label>
-        <div class="gender-options">
-          <label class="radio-label">
-            <input type="radio" name="gender" value="male" /> Male
-          </label>
-          <label class="radio-label">
-            <input type="radio" name="gender" value="female" /> Female
-          </label>
+      <!-- FORM CARD - where user enters their details -->
+      <div class="card">
+        <!-- DAY INPUT -->
+        <div class="form-group">
+          <label>Day</label>
+          <input type="number" id="day" placeholder="e.g. 15" />
         </div>
+
+        <!-- MONTH DROPDOWN - user picks month by name -->
+        <div class="form-group">
+          <label>Month</label>
+          <select id="month">
+            <option value="">Select Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+
+        <!-- YEAR INPUT -->
+        <div class="form-group">
+          <label>Year</label>
+          <input type="number" id="year" placeholder="e.g. 2000" />
+        </div>
+
+        <!-- GENDER RADIO BUTTONS - only one can be selected at a time -->
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="gender-options">
+            <label class="radio-label">
+              <input type="radio" name="gender" value="male" /> Male
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="female" /> Female
+            </label>
+          </div>
+        </div>
+
+        <!-- SUBMIT BUTTON - triggers generateName() in script.js -->
+        <button id="submit-btn">Find My Akan Name</button>
+
+        <!-- RESET BUTTON - clears the form -->
+        <button class="reset-btn" id="reset-btn">Reset</button>
       </div>
+      <!-- END OF FORM CARD -->
 
-      <!-- SUBMIT BUTTON - triggers generateName() in script.js -->
-      <button id="submit-btn">Find My Akan Name</button>
+      <!-- RESULT BOX - hidden by default, shows after button is clicked -->
+      <div class="result" id="result"></div>
 
-      <!-- RESET BUTTON - clears the form -->
-      <button class="reset-btn" id="reset-btn">Reset</button>
+      <!-- ABOUT SECTION - explains Akan names with a reference table -->
+      <div class="about" id="about">
+        <h2>About Akan Names</h2>
+        <p>
+          I found this really interesting — in Ghana, your name is based on the
+          day you were born. So I built this to help people find theirs!
+        </p>
 
+        <!-- AKAN NAMES REFERENCE TABLE -->
+        <table class="akan-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Male Name</th>
+              <th>Female Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sunday</td>
+              <td>Kwasi</td>
+              <td>Akosua</td>
+            </tr>
+            <tr>
+              <td>Monday</td>
+              <td>Kwadwo</td>
+              <td>Adwoa</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>Kwabena</td>
+              <td>Abenaa</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>Kwaku</td>
+              <td>Akua</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>Yaw</td>
+              <td>Yaa</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>Kofi</td>
+              <td>Afua</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td>Kwame</td>
+              <td>Ama</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- END OF ABOUT SECTION -->
+
+      <!-- FOOTER - author info and copyright -->
+      <footer class="footer">
+        <p>Made with ❤️ by John Chris Wamai</p>
+        <p>Akan Name Generator &copy; 2026</p>
+      </footer>
     </div>
-    <!-- END OF FORM CARD -->
 
-    <!-- RESULT BOX - hidden by default, shows after button is clicked -->
-    <div class="result" id="result"></div>
-
-    <!-- ABOUT SECTION - explains Akan names with a reference table -->
-    <div class="about" id="about">
-      <h2>About Akan Names</h2>
-      <p>I found this really interesting — in Ghana, your name is based on the day you were born. So I built this to help people find theirs!</p>
-
-      <!-- AKAN NAMES REFERENCE TABLE -->
-      <table class="akan-table">
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Male Name</th>
-            <th>Female Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Sunday</td><td>Kwasi</td><td>Akosua</td></tr>
-          <tr><td>Monday</td><td>Kwadwo</td><td>Adwoa</td></tr>
-          <tr><td>Tuesday</td><td>Kwabena</td><td>Abenaa</td></tr>
-          <tr><td>Wednesday</td><td>Kwaku</td><td>Akua</td></tr>
-          <tr><td>Thursday</td><td>Yaw</td><td>Yaa</td></tr>
-          <tr><td>Friday</td><td>Kofi</td><td>Afua</td></tr>
-          <tr><td>Saturday</td><td>Kwame</td><td>Ama</td></tr>
-        </tbody>
-      </table>
-
-    </div>
-    <!-- END OF ABOUT SECTION -->
-
-    <!-- FOOTER - author info and copyright -->
-    <footer class="footer">
-      <p>Made with ❤️ by John Chris Wamai</p>
-      <p>Akan Name Generator &copy; 2026</p>
-    </footer>
-
-  </div>
-
-  <!-- Link to our JavaScript file - placed at bottom so HTML loads first -->
-  <script src="script.js"></script>
-
-</body>
+    <!-- Link to our JavaScript file - placed at bottom so HTML loads first -->
+    <script src="script.js"></script>
+  </body>
 </html>
